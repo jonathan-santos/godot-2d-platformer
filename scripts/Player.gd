@@ -2,9 +2,16 @@ extends KinematicBody2D
 
 var vel = Vector2()
 var speed = 12000
+var jumpPower = 100000
+var gravity = 20000
 
 func _process(delta):
 	vel = Vector2()
+	
+	vel.y += gravity
+	
+	if(is_on_floor() and Input.is_action_pressed("jump")):
+		vel.y -= jumpPower
 	
 	if Input.is_action_pressed("move_right"):
 		vel.x += speed
@@ -18,4 +25,4 @@ func _process(delta):
 	else:
 		$AnimatedSprite.play("idle")	
 		
-	move_and_slide(vel * delta, Vector2.UP)
+	vel = move_and_slide(vel * delta, Vector2.UP)

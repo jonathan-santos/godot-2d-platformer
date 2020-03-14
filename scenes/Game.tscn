@@ -1,8 +1,55 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.0654, 13.5446 )
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 440, 212 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( 352.609, 327.971 )
+scale = Vector2( 16.6089, 2.92888 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+margin_left = -13.9318
+margin_top = -13.2684
+margin_right = 26.0682
+margin_bottom = 26.7316
+rect_scale = Vector2( 0.690379, 0.656339 )
+color = Color( 0.227451, 0.227451, 0.227451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( -0.27739, 0.554779 )
+shape = SubResource( 1 )
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2( 840.506, 325.579 )
+scale = Vector2( 7.32888, 2.92888 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Ground2"]
+margin_left = -13.9318
+margin_top = -13.2684
+margin_right = 26.0682
+margin_bottom = 26.7316
+rect_scale = Vector2( 0.690379, 0.656339 )
+color = Color( 0.227451, 0.227451, 0.227451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2( -0.27739, 0.554779 )
+shape = SubResource( 1 )
